@@ -38,7 +38,7 @@ module MusixMatchService
 
     if track_body
       track_body['track_list'].each do |element|
-        unless PlaylistTrack.exists?(track_id: element['track']['track_id'])
+        unless PlaylistTrack.exists?(playlist_id: playlist_id, track_id: element['track']['track_id'])
           return PlaylistTrack.create(
             playlist_id: playlist_id,
             track_id: element['track']['track_id'],
